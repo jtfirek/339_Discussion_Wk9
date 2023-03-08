@@ -11,39 +11,49 @@
 			font-size: 1.1em;
 			line-height: 1.5;
 		}
+
+		body {
+			background-color: #333333;
+			margin: 0;
+		}
 	</style>
 
 	<script type="text/javascript">
-	function displayInformation () {
-		// Your code goes here. 
-		// Do not change any other code in this file
-		// All of the steps below must be achieved using JavaScript!
+		function displayInformation () {
+			// Your code goes here. 
+			// Do not change any other code in this file
+			// All of the steps below must be achieved using JavaScript!
 
-		
-		// 1. Change the h1 element to your name.
+			
+			// 1. Change the h1 element to your name.
+			document.querySelector("h1").textContent = "Your Name";
 
+			// 2. Update the three span elements using ONLY JavaScript
+			document.getElementById("URL").textContent = window.location.href;
+			document.getElementById("items").textContent = document.getElementsByTagName("li").length;
+			document.getElementById("time").textContent = new Date().toLocaleString();
 
+			// 3. Change the background color and margin for the entire page.
+			document.body.style.backgroundColor = "#f2f2f2";
+			document.body.style.margin = "50px";
 
-		// 2. Update the three span elements using ONLY JavaScript
-
-
-
-		// 3. Change the background color and margin for the entire page.
-	
-
-
-    }
-
-    // 4. If someone uses the keyboard shortcut to copy the words "University of Michigan" then add the words "Go Blue" to the final div.  
-    // Each occurence should be on a separate line.  Don't use 
-    // paragraphs. 
-
-		
-</script>
+			// 4. If someone uses the keyboard shortcut to copy the words "University of Michigan" then add the words "Go Blue" to the final div.  
+			// Each occurrence should be on a separate line.  Don't use 
+			// paragraphs.
+			function copyFunction() {
+				let text = window.getSelection().toString();
+				if (text === "University of Michigan") {
+					let cheerDiv = document.getElementById("cheer");
+					let cheerText = document.createTextNode("Go Blue\n");
+					cheerDiv.appendChild(cheerText);
+				}
+			}
+		}
+	</script>
 
 </head>
-<body>
-	<h1>Your name goes here</h1>
+<body onload="displayInformation()">
+	<h1></h1>
 
 	<ol>
 		<li>Apples</li>
